@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Luck from './components/Luck';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
             , the Flake
           </p>
         </div>
-
+        <Luck />
         
       </div>
     );
