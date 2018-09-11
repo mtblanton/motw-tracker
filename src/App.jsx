@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Luck from './components/Luck';
 import './App.css';
+import { observer } from 'mobx-react';
+import luckStore from './store/LuckStore';
 
 class App extends Component {
   render() {
@@ -15,7 +17,7 @@ class App extends Component {
             , the Flake
           </p>
         </div>
-        <Luck />
+        <Luck store={luckStore}/>
         
       </div>
     );

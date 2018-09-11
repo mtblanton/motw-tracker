@@ -14,10 +14,6 @@ class LuckStore {
     setLuck = luckCount => {
         this.usedLuckCount = luckCount;
     }
-
-    @computed get luckCount() {
-        return this.usedLuckCount;
-    }
 }
 
 const luckStore = new LuckStore();
