@@ -1,11 +1,8 @@
 import React from 'react'
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
-const Luck = observer((props) => {
-  console.log(props); 
-  const {store} = this.props
-  console.log(store);
-  const luckStore = this.props.store.luckStore;
+const Luck = inject('luckStore')(observer(({luckStore}) => {
+  console.log(luckStore);
   return (
   <div id="LuckCheckboxes">
     <label>Luck</label>
@@ -18,6 +15,6 @@ const Luck = observer((props) => {
     <input type="checkbox" />
   </div>
   );
-});
+}));
 
 export default Luck;
