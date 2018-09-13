@@ -2,7 +2,7 @@ import React from 'react'
 import { observer, inject } from 'mobx-react';
 
 export const ConnectedCheckbox = store => {
-  const getClickHandler = count => () => store.setLuck(count);
+  const getClickHandler = count => () => store.set(count);
 
   return observer(({number}) => (
     <input 
@@ -29,8 +29,8 @@ const Luck = inject('luckStore')(({luckStore}) => {
         <LuckCheckbox number={7} />
       </div>
       <div id="LuckButtons">
-        <button type="button" onClick={() => luckStore.addLuck()}>+</button>
-        <button type="button" onClick={() => luckStore.removeLuck()}>-</button>
+        <button type="button" onClick={luckStore.removeLuck}>-</button>
+        <button type="button" onClick={luckStore.addLuck}>+</button>
       </div>
     </React.Fragment>
 

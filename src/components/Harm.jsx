@@ -16,6 +16,10 @@ const Harm = inject('harmStore')(({harmStore}) => {
         <HarmCheckbox number={6} />
         <HarmCheckbox number={7} />
       </div>
+      <div id="HarmButtons">
+        <button type="button" onClick={harmStore.removeHarm}>-</button>  
+        <button type="button" onClick={harmStore.addHarm}>+</button>  
+      </div>
     </React.Fragment>
   )
 })

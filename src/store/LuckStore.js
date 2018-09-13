@@ -15,7 +15,7 @@ class LuckStore {
         }
     }
 
-    setLuck = luckCount => {
+    set = luckCount => {
         this.count = luckCount;
     }
 }
