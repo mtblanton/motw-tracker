@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Luck from "./components/Luck";
 import "./App.css";
-import { observer, Provider } from "mobx-react";
+import { Provider } from "mobx-react";
 import luckStore from "./store/LuckStore";
 
 class App extends Component {

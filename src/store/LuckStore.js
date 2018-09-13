@@ -1,18 +1,22 @@
 import { observable } from "mobx";
 
 class LuckStore {
-    @observable luckCount = 0;
+    @observable count = 0;
 
     addLuck = () => {
-        this.luckCount += 1;
+        if (this.count < 7) {
+          this.count += 1;
+        }
     }
 
     removeLuck = () => {
-        this.luckCount -= 1;
+        if (this.count > 0) {
+          this.count -= 1;
+        }
     }
 
     setLuck = luckCount => {
-        this.luckCount = luckCount;
+        this.count = luckCount;
     }
 }
 
