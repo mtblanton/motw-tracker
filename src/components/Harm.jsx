@@ -2,19 +2,25 @@ import React from 'react';
 import {ConnectedCheckbox} from './Luck';
 import { inject } from 'mobx-react';
 
+const HarmCheckbox = ({harmStore, number}) => (
+  <ConnectedCheckbox store={harmStore} number={number} />
+);
+
+const ConnectedHarmCheckbox =inject('harmStore')(HarmCheckbox);
+
 const Harm = inject('harmStore')(({harmStore}) => {
-  const HarmCheckbox = ConnectedCheckbox(harmStore);
 
   return (
     <React.Fragment>
-      <div id="HarmCheckboxes">
-        <HarmCheckbox number={1} />
-        <HarmCheckbox number={2} />
-        <HarmCheckbox number={3} />
-        <HarmCheckbox number={4} />
-        <HarmCheckbox number={5} />
-        <HarmCheckbox number={6} />
-        <HarmCheckbox number={7} />
+      <div id="ConnectedCheckboxes">
+        <label>Harm</label>
+        <ConnectedHarmCheckbox number={1} />
+        <ConnectedHarmCheckbox number={2} />
+        <ConnectedHarmCheckbox number={3} />
+        <ConnectedHarmCheckbox number={4} />
+        <ConnectedHarmCheckbox number={5} />
+        <ConnectedHarmCheckbox number={6} />
+        <ConnectedHarmCheckbox number={7} />
       </div>
       <div id="HarmButtons">
         <button type="button" onClick={harmStore.removeHarm}>-</button>  

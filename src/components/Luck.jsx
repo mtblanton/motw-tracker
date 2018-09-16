@@ -1,32 +1,37 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react';
 
-export const ConnectedCheckbox = store => {
+export const ConnectedCheckbox = observer(({store, number}) => {
   const getClickHandler = count => () => store.set(count);
 
-  return observer(({number}) => (
+  return (
     <input 
       type="checkbox"
       checked={store.count >= number}
       onChange={getClickHandler(number)}
     />
-  ));
-  }
+  );
+  });
 
-const Luck = inject('luckStore')(({luckStore}) => {
-  const LuckCheckbox = ConnectedCheckbox(luckStore);
+const LuckCheckbox = ({number, luckStore}) => (
+  <ConnectedCheckbox store={luckStore} number={number} />
+);
+
+const ConnectedLuckCheckbox = inject('luckStore')(LuckCheckbox);
+
+const Luck = ({luckStore}) => {
 
   return (
     <React.Fragment>
-      <div id="LuckCheckboxes">
+      <div id="ConnectedCheckboxes">
         <label>Luck</label>
-        <LuckCheckbox number={1} />
-        <LuckCheckbox number={2} />
-        <LuckCheckbox number={3} />
-        <LuckCheckbox number={4} />
-        <LuckCheckbox number={5} />
-        <LuckCheckbox number={6} />
-        <LuckCheckbox number={7} />
+        <ConnectedLuckCheckbox number={1} />
+        <ConnectedLuckCheckbox number={2} />
+        <ConnectedLuckCheckbox number={3} />
+        <ConnectedLuckCheckbox number={4} />
+        <ConnectedLuckCheckbox number={5} />
+        <ConnectedLuckCheckbox number={6} />
+        <ConnectedLuckCheckbox number={7} />
       </div>
       <div id="LuckButtons">
         <button type="button" onClick={luckStore.removeLuck}>-</button>
@@ -35,6 +40,6 @@ const Luck = inject('luckStore')(({luckStore}) => {
     </React.Fragment>
 
   );
-});
+};
 
-export default Luck;
+export default inject('luckStore')(Luck);

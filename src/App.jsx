@@ -14,10 +14,7 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">Monster of the Week character tracker</h1>
           </header>
-          <div id="CharacterName">
-            <input type="text" name="CharacterName" id="CharacterName" />
-            <p>, the Flake</p>
-          </div>
+          
           <Luck />
           <Harm />
         </div>
